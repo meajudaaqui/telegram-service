@@ -1,16 +1,16 @@
 import { Request, Response } from 'express';
-import { SendMessage } from '../services/sendMessage.service';
+import { SendMessageService } from '../services/sendMessage.service';
 
 class SendMessageController {
   async handle(req: Request, res: Response) {
     try {
-      const sendMessage = new SendMessage();
+      const sendMessage = new SendMessageService();
       const {service, description} = req.body;
       const message = `Falha Reportada - ${service} : ${description}`;
       const result = {service, description, message};
       sendMessage.execute(message);
       console.info('SendMessageController :: handle ',result);
-      return res.json({service, description, message});
+      return res.json(result);
 
     } catch (err) {
       console.error('SendMessageController :: handle ', err);

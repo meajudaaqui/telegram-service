@@ -1,6 +1,6 @@
 import telegramBot from 'node-telegram-bot-api';
 
-class SendMessage {
+class SendMessageService {
   async execute(messageSend: string) {
     const token = "1947025787:AAFP5eO9g0SFmM0YIJuLtM7NhUEYpGYQqww";
     const bot = new telegramBot(token, {polling: true});
@@ -11,4 +11,4 @@ class SendMessage {
   }
 }
 
-export { SendMessage }
+export { SendMessageService }
